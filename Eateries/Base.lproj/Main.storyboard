@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,40 +19,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="85" id="XRK-kj-5xW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="85" id="XRK-kj-5xW" customClass="EateriesTableViewCell" customModule="Eateries" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XRK-kj-5xW" id="T4S-WC-DFB">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eyj-B1-Qix">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eyj-B1-Qix">
                                             <rect key="frame" x="15" y="10" width="65" height="65"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="65" id="lMc-sc-bh6"/>
+                                                <constraint firstAttribute="width" constant="65" id="qoc-Uq-nQK"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqf-b5-bmX">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqf-b5-bmX">
                                             <rect key="frame" x="95" y="9" width="207" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="207" id="gCa-hK-UEX"/>
+                                                <constraint firstAttribute="height" constant="22" id="nJf-5A-z0g"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovj-6I-gGt">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovj-6I-gGt">
                                             <rect key="frame" x="95" y="35" width="207" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="OQ9-sB-fV4"/>
+                                                <constraint firstAttribute="width" constant="207" id="vKk-6Q-ffs"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhT-xr-Krq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhT-xr-Krq">
                                             <rect key="frame" x="95" y="54" width="207" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="207" id="R8a-jT-4dg"/>
+                                                <constraint firstAttribute="height" constant="21" id="odW-ix-1TR"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uhT-xr-Krq" firstAttribute="top" secondItem="ovj-6I-gGt" secondAttribute="bottom" constant="1" id="3hD-BA-lqC"/>
+                                        <constraint firstItem="Nqf-b5-bmX" firstAttribute="top" secondItem="T4S-WC-DFB" secondAttribute="topMargin" constant="1" id="WJL-Hg-Jfu"/>
+                                        <constraint firstItem="Nqf-b5-bmX" firstAttribute="leading" secondItem="T4S-WC-DFB" secondAttribute="leadingMargin" constant="87" id="aI1-lP-0LW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="uhT-xr-Krq" secondAttribute="bottom" constant="1" id="dOf-f7-VKM"/>
+                                        <constraint firstItem="ovj-6I-gGt" firstAttribute="leading" secondItem="T4S-WC-DFB" secondAttribute="leadingMargin" constant="87" id="ey7-gy-LQO"/>
+                                        <constraint firstItem="uhT-xr-Krq" firstAttribute="leading" secondItem="T4S-WC-DFB" secondAttribute="leadingMargin" constant="87" id="maq-PE-5yJ"/>
+                                        <constraint firstItem="Eyj-B1-Qix" firstAttribute="leading" secondItem="T4S-WC-DFB" secondAttribute="leadingMargin" constant="7" id="toi-xp-EjD"/>
+                                        <constraint firstItem="ovj-6I-gGt" firstAttribute="top" secondItem="Nqf-b5-bmX" secondAttribute="bottom" constant="4" id="uw0-Ik-nFj"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Eyj-B1-Qix" secondAttribute="bottom" constant="1" id="vrO-hZ-ian"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="locationLabel" destination="ovj-6I-gGt" id="Rcy-Qm-Df2"/>
+                                    <outlet property="nameLabel" destination="Nqf-b5-bmX" id="Lya-H8-hdu"/>
+                                    <outlet property="thumbnailImageView" destination="Eyj-B1-Qix" id="fV1-d9-jyp"/>
+                                    <outlet property="typeLabel" destination="uhT-xr-Krq" id="WAI-hf-Xmf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

@@ -12,6 +12,7 @@
 		2065B3411DC8ED4A0046745B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2065B3401DC8ED4A0046745B /* Assets.xcassets */; };
 		2065B3441DC8ED4A0046745B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2065B3421DC8ED4A0046745B /* LaunchScreen.storyboard */; };
 		2065B34C1DC8EE1E0046745B /* EareriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2065B34B1DC8EE1E0046745B /* EareriesTableViewController.swift */; };
+		2065B34E1DC8F3930046745B /* EateriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2065B34D1DC8F3930046745B /* EateriesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2065B3431DC8ED4A0046745B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2065B3451DC8ED4A0046745B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2065B34B1DC8EE1E0046745B /* EareriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EareriesTableViewController.swift; sourceTree = "<group>"; };
+		2065B34D1DC8F3930046745B /* EateriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EateriesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				2065B3391DC8ED4A0046745B /* AppDelegate.swift */,
 				2065B33D1DC8ED4A0046745B /* Main.storyboard */,
+				2065B34D1DC8F3930046745B /* EateriesTableViewCell.swift */,
 				2065B34B1DC8EE1E0046745B /* EareriesTableViewController.swift */,
 				2065B3401DC8ED4A0046745B /* Assets.xcassets */,
 				2065B3421DC8ED4A0046745B /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				2065B33A1DC8ED4A0046745B /* AppDelegate.swift in Sources */,
 				2065B34C1DC8EE1E0046745B /* EareriesTableViewController.swift in Sources */,
+				2065B34E1DC8F3930046745B /* EateriesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
