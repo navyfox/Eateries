@@ -53,18 +53,26 @@ class EareriesTableViewController: UITableViewController {
         return cell
     }
 
-    func showAlert(index: Int) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ac = UIAlertController(title: "Заголовок", message: "Тело сообщения", preferredStyle: .actionSheet)
-        let callAction = UIAlertAction(title: "Позаонить: +7(347)111-111\(index)", style: .default, handler: nil)
+        let callAction = UIAlertAction(title: "Позаонить: +7(347)111-111\(indexPath.row)", style: .default) {
+            (action: UIAlertAction) -> Void in
+            let alertC = UIAlertController(title: nil, message: "Вызов не может быть завершен", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertC.addAction(ok)
+            self.present(alertC, animated: true, completion: nil)
+        }
+        let isVisited = UIAlertAction(title: "Я был здесь", style: .default) {
+            (action) in
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+        }
         let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         ac.addAction(callAction)
+        ac.addAction(isVisited)
         ac.addAction(cancel)
 
         present(ac, animated: true, completion: nil)
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showAlert(index: indexPath.row)
     }
 
     /*
