@@ -53,6 +53,20 @@ class EareriesTableViewController: UITableViewController {
         return cell
     }
 
+    func showAlert(index: Int) {
+        let ac = UIAlertController(title: "Заголовок", message: "Тело сообщения", preferredStyle: .actionSheet)
+        let callAction = UIAlertAction(title: "Позаонить: +7(347)111-111\(index)", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        ac.addAction(callAction)
+        ac.addAction(cancel)
+
+        present(ac, animated: true, completion: nil)
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showAlert(index: indexPath.row)
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
