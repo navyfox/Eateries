@@ -18,6 +18,11 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
 
         imageView.image = UIImage(named: restaurant!.image)
 
+//        tableView.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+//        tableView.separatorColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        title = restaurant!.name
+
         // Do any additional setup after loading the view.
     }
 
@@ -44,7 +49,7 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
         case 1:
             cell.keyLabel.text = "Тип"
             cell.valueLabel.text = restaurant!.type
-         case 2:
+        case 2:
             cell.keyLabel.text = "Адрес"
             cell.valueLabel.text = restaurant!.location
         case 3:
@@ -53,22 +58,23 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
         default:
             break
         }
+        cell.backgroundColor = UIColor.clear
         return cell
     }
 
     private func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
 
     /*
-    // MARK: - Navigation
+     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
