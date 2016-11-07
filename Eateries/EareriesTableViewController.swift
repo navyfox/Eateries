@@ -117,7 +117,7 @@ class EareriesTableViewController: UITableViewController {
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationViewController = segue.destination as! EateryDetailViewController
-                destinationViewController.imageName = self.restaurants[indexPath.row].image
+                destinationViewController.restaurant = self.restaurants[indexPath.row]
             }
         }
     }
