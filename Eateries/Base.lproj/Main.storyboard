@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BqZ-bp-mKI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tYV-zv-vCM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Eareries Table View Controller-->
+        <!--Мои рестораны-->
         <scene sceneID="YBi-oN-Hms">
             <objects>
                 <tableViewController id="BqZ-bp-mKI" customClass="EareriesTableViewController" customModule="Eateries" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XRK-kj-5xW" id="T4S-WC-DFB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eyj-B1-Qix">
@@ -81,6 +81,7 @@
                                     <outlet property="nameLabel" destination="Nqf-b5-bmX" id="Lya-H8-hdu"/>
                                     <outlet property="thumbnailImageView" destination="Eyj-B1-Qix" id="fV1-d9-jyp"/>
                                     <outlet property="typeLabel" destination="uhT-xr-Krq" id="WAI-hf-Xmf"/>
+                                    <segue destination="B3q-1q-fkC" kind="show" identifier="detailSegue" id="MBK-U4-eQf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -89,10 +90,61 @@
                             <outlet property="delegate" destination="BqZ-bp-mKI" id="Vcb-n1-fSP"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Мои рестораны" id="wtx-d7-9ob"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iaz-2d-Tvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="164" y="149"/>
+            <point key="canvasLocation" x="898" y="149"/>
+        </scene>
+        <!--Eatery Detail View Controller-->
+        <scene sceneID="qR8-Jm-pjm">
+            <objects>
+                <viewController id="B3q-1q-fkC" customClass="EateryDetailViewController" customModule="Eateries" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jdq-rQ-AKk"/>
+                        <viewControllerLayoutGuide type="bottom" id="bjD-J7-LoC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YcR-XW-hED">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hev-9Y-R8K">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bjD-J7-LoC" firstAttribute="top" secondItem="hev-9Y-R8K" secondAttribute="bottom" id="YwG-rc-84d"/>
+                            <constraint firstItem="hev-9Y-R8K" firstAttribute="top" secondItem="Jdq-rQ-AKk" secondAttribute="bottom" id="oFS-Ug-Fuh"/>
+                            <constraint firstItem="hev-9Y-R8K" firstAttribute="leading" secondItem="YcR-XW-hED" secondAttribute="leadingMargin" constant="-16" id="udY-yG-h1g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hev-9Y-R8K" secondAttribute="trailing" constant="-16" id="zoc-q6-xBq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="hev-9Y-R8K" id="PSb-WG-W4C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rwp-oa-FLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1653.5999999999999" y="148.87556221889056"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fcN-ex-6Wv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tYV-zv-vCM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GRz-MP-ONK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BqZ-bp-mKI" kind="relationship" relationship="rootViewController" id="GcV-Zs-P9Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6P-7O-JP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="164" y="148.87556221889056"/>
         </scene>
     </scenes>
 </document>
