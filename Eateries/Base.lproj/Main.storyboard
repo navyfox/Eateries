@@ -185,7 +185,7 @@
         <!--Navigation Controller-->
         <scene sceneID="fcN-ex-6Wv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tYV-zv-vCM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" id="tYV-zv-vCM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GRz-MP-ONK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
