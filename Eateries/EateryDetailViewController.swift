@@ -8,8 +8,8 @@
 
 import UIKit
 
-class EateryDetailViewController: UIViewController {
-
+class EateryDetailViewController: UIViewController, UITableViewDataSource, UITabBarDelegate {
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     var imageName = ""
 
@@ -24,6 +24,23 @@ class EateryDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EateryDetailTableViewCell
+
+        cell.keyLabel.text = "some key text"
+        cell.valueLabel.text = "some value text"
+
+        return cell
     }
     
 
