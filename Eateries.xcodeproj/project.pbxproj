@@ -13,6 +13,7 @@
 		2065B3441DC8ED4A0046745B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2065B3421DC8ED4A0046745B /* LaunchScreen.storyboard */; };
 		2065B34C1DC8EE1E0046745B /* EareriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2065B34B1DC8EE1E0046745B /* EareriesTableViewController.swift */; };
 		2065B34E1DC8F3930046745B /* EateriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2065B34D1DC8F3930046745B /* EateriesTableViewCell.swift */; };
+		209BA2361DD0FC8F00293B99 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209BA2351DD0FC8F00293B99 /* Restaurant.swift */; };
 		20B32F681DD0F05E0019D448 /* EateryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B32F671DD0F05E0019D448 /* EateryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		2065B3451DC8ED4A0046745B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2065B34B1DC8EE1E0046745B /* EareriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EareriesTableViewController.swift; sourceTree = "<group>"; };
 		2065B34D1DC8F3930046745B /* EateriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EateriesTableViewCell.swift; sourceTree = "<group>"; };
+		209BA2351DD0FC8F00293B99 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		20B32F671DD0F05E0019D448 /* EateryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EateryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 				20B32F671DD0F05E0019D448 /* EateryDetailViewController.swift */,
 				2065B34D1DC8F3930046745B /* EateriesTableViewCell.swift */,
 				2065B34B1DC8EE1E0046745B /* EareriesTableViewController.swift */,
+				209BA2351DD0FC8F00293B99 /* Restaurant.swift */,
 				2065B3401DC8ED4A0046745B /* Assets.xcassets */,
 				2065B3421DC8ED4A0046745B /* LaunchScreen.storyboard */,
 				2065B3451DC8ED4A0046745B /* Info.plist */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				209BA2361DD0FC8F00293B99 /* Restaurant.swift in Sources */,
 				2065B33A1DC8ED4A0046745B /* AppDelegate.swift in Sources */,
 				2065B34C1DC8EE1E0046745B /* EareriesTableViewController.swift in Sources */,
 				20B32F681DD0F05E0019D448 /* EateryDetailViewController.swift in Sources */,
