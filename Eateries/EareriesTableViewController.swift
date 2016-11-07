@@ -11,7 +11,7 @@ import UIKit
 class EareriesTableViewController: UITableViewController {
 
     var restaurants: [Restaurant] = [
-        Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Омск", image: "ogonek.jpg", isVisited: false),
+        Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Омск, пр-т Карла Маркса 18/8 8 этаж 257 офис", image: "ogonek.jpg", isVisited: false),
         Restaurant(name: "Елу", type: "ресторан", location: "Омск", image: "elu.jpg", isVisited: false),
         Restaurant(name: "Bonsai", type: "ресторан", location: "Омск", image: "bonsai.jpg", isVisited: false),
         Restaurant(name: "Дастархан", type: "ресторан", location: "Омск", image: "dastarhan.jpg", isVisited: false),
@@ -67,6 +67,8 @@ class EareriesTableViewController: UITableViewController {
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true
         cell.nameLabel.text = restaurants[indexPath.row].name
+        cell.locationLabel.text = restaurants[indexPath.row].location
+        cell.typeLabel.text = restaurants[indexPath.row].type
 
         cell.accessoryType = self.restaurants[indexPath.row].isVisited ? .checkmark : .none
 
