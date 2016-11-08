@@ -81,8 +81,8 @@
 		20FD18C81DD109110070106A /* EateryDetail */ = {
 			isa = PBXGroup;
 			children = (
-				20FD18C61DD108EF0070106A /* EateryDetailTableViewCell.swift */,
 				20B32F671DD0F05E0019D448 /* EateryDetailViewController.swift */,
+				20FD18C61DD108EF0070106A /* EateryDetailTableViewCell.swift */,
 			);
 			name = EateryDetail;
 			sourceTree = "<group>";
