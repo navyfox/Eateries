@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -116,33 +115,32 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="center" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uOH-LO-1xq">
-                                                    <rect key="frame" x="20" y="-4" width="335" height="28"/>
+                                                    <rect key="frame" x="20" y="8" width="335" height="16"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxR-NX-AKT">
-                                                            <rect key="frame" x="0.0" y="3" width="112" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="112" id="E4b-zx-AWI"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwl-4a-UUB">
-                                                            <rect key="frame" x="112" y="3.5" width="223" height="21"/>
+                                                            <rect key="frame" x="112" y="0.0" width="223" height="16"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="HxR-NX-AKT" firstAttribute="width" secondItem="qwl-4a-UUB" secondAttribute="width" multiplier="0.5" id="duN-4D-VGE"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uOH-LO-1xq" firstAttribute="centerY" secondItem="RP6-tP-u5D" secondAttribute="centerY" constant="-11" id="Nsd-ea-yDo"/>
-                                                <constraint firstItem="uOH-LO-1xq" firstAttribute="leading" secondItem="RP6-tP-u5D" secondAttribute="leading" constant="20" id="P7B-r0-sNp"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="uOH-LO-1xq" secondAttribute="bottom" constant="11.5" id="SQ0-E3-NVZ"/>
-                                                <constraint firstItem="uOH-LO-1xq" firstAttribute="top" secondItem="RP6-tP-u5D" secondAttribute="topMargin" constant="-12" id="eS9-3j-l2L"/>
-                                                <constraint firstAttribute="trailing" secondItem="uOH-LO-1xq" secondAttribute="trailing" constant="20" id="rQF-nr-bk0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="uOH-LO-1xq" secondAttribute="bottom" constant="11" id="8B5-br-GCj"/>
+                                                <constraint firstItem="uOH-LO-1xq" firstAttribute="leading" secondItem="RP6-tP-u5D" secondAttribute="leadingMargin" constant="12" id="BZN-iF-008"/>
+                                                <constraint firstItem="uOH-LO-1xq" firstAttribute="centerX" secondItem="RP6-tP-u5D" secondAttribute="centerX" id="Wua-MC-fyD"/>
+                                                <constraint firstItem="uOH-LO-1xq" firstAttribute="top" secondItem="RP6-tP-u5D" secondAttribute="topMargin" id="gX7-3h-ckJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -188,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="1652" y="147.97601199400302"/>
         </scene>
-        <!--View Controller-->
+        <!--Rate View Controller-->
         <scene sceneID="ftD-CV-J8i">
             <objects>
-                <viewController id="bbz-fz-g2D" sceneMemberID="viewController">
+                <viewController id="bbz-fz-g2D" customClass="RateViewController" customModule="Eateries" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iGw-go-cye"/>
                         <viewControllerLayoutGuide type="bottom" id="VJw-MC-S2Q"/>
@@ -214,14 +212,45 @@
                                     <segue destination="bkA-4a-61F" kind="unwind" unwindAction="unwindSegueWithSegue:" id="E5G-uR-W2K"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Как Вам у нас?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4C-Wx-3Jt">
+                                <rect key="frame" x="74" y="177" width="227" height="42.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="227" id="Dvf-IF-B3y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ypC-56-RFZ">
+                                <rect key="frame" x="16" y="268.5" width="343" height="85"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmw-FJ-j1J">
+                                        <rect key="frame" x="0.0" y="0.0" width="114.5" height="85"/>
+                                        <state key="normal" image="bad"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0LC-BE-lAp">
+                                        <rect key="frame" x="114.5" y="0.0" width="114" height="85"/>
+                                        <state key="normal" image="good"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7c-ts-1Xr">
+                                        <rect key="frame" x="228.5" y="0.0" width="114.5" height="85"/>
+                                        <state key="normal" image="brilliant"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tDh-eI-8bt" secondAttribute="trailing" id="A3f-e5-wZO"/>
+                            <constraint firstItem="T4C-Wx-3Jt" firstAttribute="top" secondItem="xhv-Me-XYu" secondAttribute="bottom" constant="109" id="CZD-EJ-beB"/>
                             <constraint firstItem="xhv-Me-XYu" firstAttribute="trailing" secondItem="rd9-8X-ZJh" secondAttribute="trailingMargin" id="E5K-jP-kgy"/>
                             <constraint firstItem="tDh-eI-8bt" firstAttribute="leading" secondItem="rd9-8X-ZJh" secondAttribute="leading" id="YWh-5u-QgH"/>
+                            <constraint firstItem="T4C-Wx-3Jt" firstAttribute="centerX" secondItem="tDh-eI-8bt" secondAttribute="centerX" id="d0T-zU-8kK"/>
                             <constraint firstItem="xhv-Me-XYu" firstAttribute="top" secondItem="iGw-go-cye" secondAttribute="bottom" constant="8" id="fPp-xI-72u"/>
                             <constraint firstItem="VJw-MC-S2Q" firstAttribute="top" secondItem="tDh-eI-8bt" secondAttribute="bottom" id="fXc-yE-SUY"/>
+                            <constraint firstItem="ypC-56-RFZ" firstAttribute="trailing" secondItem="xhv-Me-XYu" secondAttribute="trailing" id="pdK-fU-ZVP"/>
+                            <constraint firstItem="ypC-56-RFZ" firstAttribute="top" secondItem="T4C-Wx-3Jt" secondAttribute="bottom" constant="49" id="sbV-pF-NoQ"/>
+                            <constraint firstItem="ypC-56-RFZ" firstAttribute="centerX" secondItem="T4C-Wx-3Jt" secondAttribute="centerX" id="tkE-di-QY2"/>
                             <constraint firstItem="tDh-eI-8bt" firstAttribute="top" secondItem="rd9-8X-ZJh" secondAttribute="top" id="vKf-ae-1xw"/>
                         </constraints>
                     </view>
@@ -251,6 +280,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bad" width="85" height="85"/>
+        <image name="brilliant" width="85" height="85"/>
         <image name="close" width="50" height="50"/>
         <image name="good" width="85" height="85"/>
         <image name="rateBackground" width="200" height="286"/>
