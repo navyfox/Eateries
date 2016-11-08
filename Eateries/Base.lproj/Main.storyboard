@@ -254,6 +254,12 @@
                             <constraint firstItem="tDh-eI-8bt" firstAttribute="top" secondItem="rd9-8X-ZJh" secondAttribute="top" id="vKf-ae-1xw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="badButton" destination="Tmw-FJ-j1J" id="uPk-nL-6Zf"/>
+                        <outlet property="brilliantButton" destination="q7c-ts-1Xr" id="r5f-gg-4x1"/>
+                        <outlet property="goodButton" destination="0LC-BE-lAp" id="Jpw-zd-QSs"/>
+                        <outlet property="ratingStackView" destination="ypC-56-RFZ" id="AR3-zD-oGV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNO-fV-fVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bkA-4a-61F" userLabel="Exit" sceneMemberID="exit"/>
