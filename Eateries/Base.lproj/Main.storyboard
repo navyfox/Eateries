@@ -87,6 +87,38 @@
             </objects>
             <point key="canvasLocation" x="898" y="149"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Hso-Bd-iYG">
+            <objects>
+                <viewController id="W2O-vL-X5H" customClass="MapViewController" customModule="Eateries" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YGn-Q9-QGi"/>
+                        <viewControllerLayoutGuide type="bottom" id="vyw-YU-WAJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YNF-bZ-xXw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wpc-Fb-nkE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wpc-Fb-nkE" firstAttribute="leading" secondItem="YNF-bZ-xXw" secondAttribute="leading" id="Ucf-Ta-MI2"/>
+                            <constraint firstItem="vyw-YU-WAJ" firstAttribute="top" secondItem="wpc-Fb-nkE" secondAttribute="bottom" id="cOe-qN-FYV"/>
+                            <constraint firstAttribute="trailing" secondItem="wpc-Fb-nkE" secondAttribute="trailing" id="gSl-md-fz9"/>
+                            <constraint firstItem="wpc-Fb-nkE" firstAttribute="top" secondItem="YNF-bZ-xXw" secondAttribute="top" id="q2r-3e-q0I"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="wpc-Fb-nkE" id="i0I-hF-1YZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HG1-Hz-XDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1652" y="-508.69565217391306"/>
+        </scene>
         <!--Eatery Detail View Controller-->
         <scene sceneID="qR8-Jm-pjm">
             <objects>
@@ -165,19 +197,33 @@
                                     <segue destination="bbz-fz-g2D" kind="showDetail" id="1g0-7Y-kdB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9X-UG-5xE">
+                                <rect key="frame" x="309" y="130" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="B9X-UG-5xE" secondAttribute="height" multiplier="1:1" id="Lsc-YR-try"/>
+                                    <constraint firstAttribute="height" constant="50" id="gPn-Z7-xko"/>
+                                </constraints>
+                                <state key="normal" image="map"/>
+                                <connections>
+                                    <segue destination="W2O-vL-X5H" kind="show" identifier="mapSegue" id="JgR-Wm-eG0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="B9X-UG-5xE" firstAttribute="top" secondItem="Shz-sK-41y" secondAttribute="bottom" constant="8" id="Jiv-EY-6hg"/>
                             <constraint firstItem="Shz-sK-41y" firstAttribute="trailing" secondItem="YcR-XW-hED" secondAttribute="trailingMargin" id="NDV-kA-3Ga"/>
                             <constraint firstItem="icQ-yl-vmx" firstAttribute="leading" secondItem="YcR-XW-hED" secondAttribute="leading" id="V0R-mb-0Hj"/>
                             <constraint firstItem="Shz-sK-41y" firstAttribute="top" secondItem="Jdq-rQ-AKk" secondAttribute="bottom" constant="8" id="dBh-qC-etm"/>
                             <constraint firstItem="icQ-yl-vmx" firstAttribute="top" secondItem="YcR-XW-hED" secondAttribute="top" id="jND-HP-QyP"/>
                             <constraint firstAttribute="trailing" secondItem="icQ-yl-vmx" secondAttribute="trailing" id="l7A-JF-MKe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B9X-UG-5xE" secondAttribute="trailing" id="qVI-3Y-4Fs"/>
                             <constraint firstItem="bjD-J7-LoC" firstAttribute="top" secondItem="icQ-yl-vmx" secondAttribute="bottom" id="ynd-s9-38I"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="LCN-dP-2gD" id="1LE-A2-dNy"/>
+                        <outlet property="mapButton" destination="B9X-UG-5xE" id="02U-Dc-sb2"/>
                         <outlet property="rateButton" destination="Shz-sK-41y" id="w6h-AW-gM9"/>
                         <outlet property="tableView" destination="icQ-yl-vmx" id="Rsr-UV-EqD"/>
                     </connections>
@@ -299,6 +345,7 @@
         <image name="brilliant" width="85" height="85"/>
         <image name="close" width="50" height="50"/>
         <image name="good" width="85" height="85"/>
+        <image name="map" width="50" height="50"/>
         <image name="rateBackground" width="200" height="286"/>
     </resources>
 </document>
