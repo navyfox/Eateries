@@ -39,7 +39,7 @@ class EateryDetailViewController: UIViewController, UITableViewDataSource, UITab
         tableView.estimatedRowHeight = 38
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        imageView.image = UIImage(named: restaurant!.image)
+        imageView.image = UIImage(data: restaurant?.image as! Data)
 
 //        tableView.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
 //        tableView.separatorColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)

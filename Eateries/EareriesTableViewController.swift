@@ -10,22 +10,22 @@ import UIKit
 
 class EareriesTableViewController: UITableViewController {
 
-    var restaurants: [Restaurant] = [
-        Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Омск, пр-т Карла Маркса 18/8 8 этаж 257 офис", image: "ogonek.jpg", isVisited: false),
-        Restaurant(name: "Елу", type: "ресторан", location: "Омск", image: "elu.jpg", isVisited: false),
-        Restaurant(name: "Bonsai", type: "ресторан", location: "Омск", image: "bonsai.jpg", isVisited: false),
-        Restaurant(name: "Дастархан", type: "ресторан", location: "Омск", image: "dastarhan.jpg", isVisited: false),
-        Restaurant(name: "Индокитай", type: "ресторан", location: "Омск", image: "indokitay.jpg", isVisited: false),
-        Restaurant(name: "X.O", type: "ресторан-клуб", location: "Омск", image: "x.o.jpg", isVisited: false),
-        Restaurant(name: "Балкан Гриль", type: "ресторан", location: "Омск", image: "balkan.jpg", isVisited: false),
-        Restaurant(name: "Respublica", type: "ресторан", location: "Омск", image: "respublika.jpg", isVisited: false),
-        Restaurant(name: "Speak Easy", type: "ресторанный комплекс", location: "Омск", image: "speakeasy.jpg", isVisited: false),
-        Restaurant(name: "Morris Pub", type: "ресторан", location: "Омск", image: "morris.jpg", isVisited: false),
-        Restaurant(name: "Вкусные истории", type: "ресторан", location: "Омск", image: "istorii.jpg", isVisited: false),
-        Restaurant(name: "Классик", type: "ресторан", location: "Омск", image: "klassik.jpg", isVisited: false),
-        Restaurant(name: "Love&Life", type: "ресторан", location: "Омск", image: "love.jpg", isVisited: false),
-        Restaurant(name: "Шок", type: "ресторан", location: "Омск", image: "shok.jpg", isVisited: false),
-        Restaurant(name: "Бочка", type: "ресторан", location:  "Омск", image: "bochka.jpg", isVisited: false)]
+    var restaurants: [Restaurant] = []
+//        Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Омск, пр-т Карла Маркса 18/8 8 этаж 257 офис", image: "ogonek.jpg", isVisited: false),
+//        Restaurant(name: "Елу", type: "ресторан", location: "Омск", image: "elu.jpg", isVisited: false),
+//        Restaurant(name: "Bonsai", type: "ресторан", location: "Омск", image: "bonsai.jpg", isVisited: false),
+//        Restaurant(name: "Дастархан", type: "ресторан", location: "Омск", image: "dastarhan.jpg", isVisited: false),
+//        Restaurant(name: "Индокитай", type: "ресторан", location: "Омск", image: "indokitay.jpg", isVisited: false),
+//        Restaurant(name: "X.O", type: "ресторан-клуб", location: "Омск", image: "x.o.jpg", isVisited: false),
+//        Restaurant(name: "Балкан Гриль", type: "ресторан", location: "Омск", image: "balkan.jpg", isVisited: false),
+//        Restaurant(name: "Respublica", type: "ресторан", location: "Омск", image: "respublika.jpg", isVisited: false),
+//        Restaurant(name: "Speak Easy", type: "ресторанный комплекс", location: "Омск", image: "speakeasy.jpg", isVisited: false),
+//        Restaurant(name: "Morris Pub", type: "ресторан", location: "Омск", image: "morris.jpg", isVisited: false),
+//        Restaurant(name: "Вкусные истории", type: "ресторан", location: "Омск", image: "istorii.jpg", isVisited: false),
+//        Restaurant(name: "Классик", type: "ресторан", location: "Омск", image: "klassik.jpg", isVisited: false),
+//        Restaurant(name: "Love&Life", type: "ресторан", location: "Омск", image: "love.jpg", isVisited: false),
+//        Restaurant(name: "Шок", type: "ресторан", location: "Омск", image: "shok.jpg", isVisited: false),
+//        Restaurant(name: "Бочка", type: "ресторан", location:  "Омск", image: "bochka.jpg", isVisited: false)]
 
     @IBAction func close(segue: UIStoryboardSegue){
         
@@ -70,7 +70,7 @@ class EareriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EateriesTableViewCell
 
-        cell.thumbnailImageView.image = UIImage(named: restaurants[indexPath.row].image)
+        cell.thumbnailImageView.image = UIImage(data: restaurants[indexPath.row].image as! Data)
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true
         cell.nameLabel.text = restaurants[indexPath.row].name
@@ -111,8 +111,8 @@ class EareriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
         let share = UITableViewRowAction(style: .default, title: "Поделиться") { (action, indexPath) in
-            let defaultText = "Я сейчас в" + self.restaurants[indexPath.row].name
-            if let image = UIImage(named: self.restaurants[indexPath.row].image) {
+            let defaultText = "Я сейчас в" + self.restaurants[indexPath.row].name!
+            if let image = UIImage(data: self.restaurants[indexPath.row].image as! Data) {
                 let activityController = UIActivityViewController(activityItems: [defaultText, image], applicationActivities: nil)
                 self.present(activityController, animated: true, completion: nil)
             }
