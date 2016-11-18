@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EareriesTableViewController: UITableViewController {
+class EareriesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     var fetchResultsConroller: NSFetchedResultsController<Restaurant>!
     var restaurants: [Restaurant] = []
@@ -51,6 +51,7 @@ class EareriesTableViewController: UITableViewController {
 
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext{
              fetchResultsConroller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultsConroller.delegate = self
 
             do {
                 try fetchResultsConroller.performFetch()
@@ -71,6 +72,30 @@ class EareriesTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    // MARK: Fetch results controller delegate
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert: guard let indexPath = newIndexPath else { break }
+        tableView.insertRows(at: [indexPath], with: .fade)
+        case .delete: guard let indexPath = indexPath else { break }
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        case .update: guard let indexPath = indexPath else { break }
+        tableView.reloadRows(at: [indexPath], with: .fade)
+        default:
+            tableView.reloadData()
+        }
+        restaurants = controller.fetchedObjects as! [Restaurant]
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
 
     // MARK: - Table view data source
