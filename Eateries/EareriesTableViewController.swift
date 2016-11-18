@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class EareriesTableViewController: UITableViewController {
 
+    var fetchResultsConroller: NSFetchedResultsController<Restaurant>!
     var restaurants: [Restaurant] = []
 //        Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Омск, пр-т Карла Маркса 18/8 8 этаж 257 офис", image: "ogonek.jpg", isVisited: false),
 //        Restaurant(name: "Елу", type: "ресторан", location: "Омск", image: "elu.jpg", isVisited: false),
@@ -42,6 +44,22 @@ class EareriesTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
+        let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext{
+             fetchResultsConroller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+
+            do {
+                try fetchResultsConroller.performFetch()
+                restaurants = fetchResultsConroller.fetchedObjects!
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
