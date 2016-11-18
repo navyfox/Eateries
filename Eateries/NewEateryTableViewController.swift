@@ -16,14 +16,18 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
+    var isVisited = false
+
 
     @IBAction func toggleIsVisitedPressed(_ sender: UIButton) {
         if sender == yesButton {
             sender.backgroundColor = #colorLiteral(red: 0, green: 0.9772773385, blue: 0.1395272017, alpha: 1)
             noButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            isVisited = true
         } else {
             sender.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             yesButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            isVisited = false
         }
     }
 
@@ -31,6 +35,25 @@ class NewEateryTableViewController: UITableViewController, UIImagePickerControll
         if nameTextField.text == "" || adressTextField.text == "" || typeTextField.text == "" {
             print("Не все поля заполнены")
         } else {
+
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext {
+                let restaurant = Restaurant(context: context)
+                restaurant.name = nameTextField.text
+                restaurant.location = adressTextField.text
+                restaurant.type = typeTextField.text
+                restaurant.isVisited = isVisited
+                if let image = imageView.image {
+                    restaurant.image = UIImagePNGRepresentation(image) as NSData?
+                }
+
+                do {
+                    try context.save()
+                } catch let error as NSError {
+                    print("Не удалось сохранить данные \(error), \(error.userInfo)")
+                }
+
+            }
+
             performSegue(withIdentifier: "unwindSegueFromNewEatery", sender: self)
         }
     }
