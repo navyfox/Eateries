@@ -11,8 +11,35 @@ import UIKit
 class NewEateryTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var adressTextField: UITextField!
+    @IBOutlet weak var typeTextField: UITextField!
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
+
+    @IBAction func toggleIsVisitedPressed(_ sender: UIButton) {
+        if sender == yesButton {
+            sender.backgroundColor = #colorLiteral(red: 0, green: 0.9772773385, blue: 0.1395272017, alpha: 1)
+            noButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        } else {
+            sender.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            yesButton.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        }
+    }
+
+    @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
+        if nameTextField.text == "" || adressTextField.text == "" || typeTextField.text == "" {
+            print("Не все поля заполнены")
+        } else {
+            performSegue(withIdentifier: "unwindSegueFromNewEatery", sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        yesButton.backgroundColor = #colorLiteral(red: 0, green: 0.9772773385, blue: 0.1395272017, alpha: 1)
+        noButton.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
