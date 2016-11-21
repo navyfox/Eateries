@@ -13,6 +13,12 @@ class EareriesTableViewController: UITableViewController, NSFetchedResultsContro
 
     var fetchResultsConroller: NSFetchedResultsController<Restaurant>!
     var restaurants: [Restaurant] = []
+    var searchController: UISearchController!
+    var filteredResultArray: [Restaurant] = []
+
+
+
+
 //        Restaurant(name: "Ogonёk Grill&Bar", type: "ресторан", location: "Омск, пр-т Карла Маркса 18/8 8 этаж 257 офис", image: "ogonek.jpg", isVisited: false),
 //        Restaurant(name: "Елу", type: "ресторан", location: "Омск", image: "elu.jpg", isVisited: false),
 //        Restaurant(name: "Bonsai", type: "ресторан", location: "Омск", image: "bonsai.jpg", isVisited: false),
@@ -37,8 +43,20 @@ class EareriesTableViewController: UITableViewController, NSFetchedResultsContro
         navigationController?.hidesBarsOnSwipe = true
     }
 
+    func filterContent(seachText text: String){
+        filteredResultArray = restaurants.filter{ (restaurant) -> Bool in
+            return (restaurant.name?.lowercased().contains(text.lowercased()))!
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+
 
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -164,6 +182,17 @@ class EareriesTableViewController: UITableViewController, NSFetchedResultsContro
         let delete = UITableViewRowAction(style: .default, title: "Удалить") {(action, indexPath) in
             self.restaurants.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+
+            if let context = (UIApplication.shared.delegate as? AppDelegate)?.coreDataStack.persistentContainer.viewContext{
+                let objectToDelete = self.fetchResultsConroller.object(at: indexPath)
+                context.delete(objectToDelete)
+
+                do {
+                    try context.save()
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
 
         share.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
@@ -224,4 +253,11 @@ class EareriesTableViewController: UITableViewController, NSFetchedResultsContro
      }
      */
     
+}
+
+extension EareriesTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContent(seachText: searchController.searchBar.text!)
+        tableView.reloadData()
+    }
 }
