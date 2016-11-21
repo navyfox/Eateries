@@ -125,20 +125,34 @@ class EareriesTableViewController: UITableViewController, NSFetchedResultsContro
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredResultArray.count
+        }
         return restaurants.count
+    }
+
+    func restaurantToDisplayAt(indexPatch: IndexPath) -> Restaurant {
+        let restaurant: Restaurant
+        if searchController.isActive && searchController.searchBar.text != "" {
+            restaurant = filteredResultArray[indexPatch.row]
+        } else {
+            restaurant = restaurants[indexPatch.row]
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! EateriesTableViewCell
 
-        cell.thumbnailImageView.image = UIImage(data: restaurants[indexPath.row].image as! Data)
+        let restaurant = restaurantToDisplayAt(indexPatch: indexPath)
+
+        cell.thumbnailImageView.image = UIImage(data: restaurant.image as! Data)
         cell.thumbnailImageView.layer.cornerRadius = 32.5
         cell.thumbnailImageView.clipsToBounds = true
-        cell.nameLabel.text = restaurants[indexPath.row].name
-        cell.locationLabel.text = restaurants[indexPath.row].location
-        cell.typeLabel.text = restaurants[indexPath.row].type
+        cell.nameLabel.text = restaurant.name
+        cell.locationLabel.text = restaurant.location
+        cell.typeLabel.text = restaurant.type
 
-        cell.accessoryType = self.restaurants[indexPath.row].isVisited ? .checkmark : .none
+        cell.accessoryType = restaurant.isVisited ? .checkmark : .none
 
 
         return cell
@@ -203,7 +217,7 @@ class EareriesTableViewController: UITableViewController, NSFetchedResultsContro
         if segue.identifier == "detailSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationViewController = segue.destination as! EateryDetailViewController
-                destinationViewController.restaurant = self.restaurants[indexPath.row]
+                destinationViewController.restaurant = restaurantToDisplayAt(indexPatch: indexPath)
             }
         }
     }
