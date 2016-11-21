@@ -74,8 +74,8 @@
 		2065B3381DC8ED4A0046745B /* Eateries */ = {
 			isa = PBXGroup;
 			children = (
-				20DCB41D1DDEBB4B00D8754A /* CoreDataStack.swift */,
 				2065B3391DC8ED4A0046745B /* AppDelegate.swift */,
+				20DCB41D1DDEBB4B00D8754A /* CoreDataStack.swift */,
 				2065B33D1DC8ED4A0046745B /* Main.storyboard */,
 				20661D491DD1A0E3000FB8BE /* MapViewController.swift */,
 				2082FAF01DD626A9003A2F1A /* NewEateryTableViewController.swift */,

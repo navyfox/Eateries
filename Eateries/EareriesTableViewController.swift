@@ -56,6 +56,10 @@ class EareriesTableViewController: UITableViewController, NSFetchedResultsContro
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.delegate = self
+        searchController.searchBar.barTintColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        searchController.searchBar.tintColor = .white
+        definesPresentationContext = true
 
 
         tableView.estimatedRowHeight = 85
@@ -138,6 +142,7 @@ class EareriesTableViewController: UITableViewController, NSFetchedResultsContro
         } else {
             restaurant = restaurants[indexPatch.row]
         }
+        return restaurant
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -273,5 +278,17 @@ extension EareriesTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContent(seachText: searchController.searchBar.text!)
         tableView.reloadData()
+    }
+}
+
+extension EareriesTableViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        if searchBar.text == "" {
+            navigationController?.hidesBarsOnSwipe = false
+        }
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        navigationController?.hidesBarsOnSwipe = true
     }
 }
