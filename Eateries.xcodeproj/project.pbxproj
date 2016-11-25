@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200F99581DE84A6500E470F0 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200F99571DE84A6500E470F0 /* AboutTableViewController.swift */; };
 		2025FB011DE5C0310000CAFA /* contentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025FB001DE5C0310000CAFA /* contentViewController.swift */; };
 		2025FB031DE5C0970000CAFA /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025FB021DE5C0970000CAFA /* PageViewController.swift */; };
 		2065B33A1DC8ED4A0046745B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2065B3391DC8ED4A0046745B /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200F99571DE84A6500E470F0 /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		2025FB001DE5C0310000CAFA /* contentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contentViewController.swift; sourceTree = "<group>"; };
 		2025FB021DE5C0970000CAFA /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		2065B3361DC8ED4A0046745B /* Eateries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eateries.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 				20661D491DD1A0E3000FB8BE /* MapViewController.swift */,
 				2082FAF01DD626A9003A2F1A /* NewEateryTableViewController.swift */,
 				20661D471DD18F45000FB8BE /* RateViewController.swift */,
+				200F99571DE84A6500E470F0 /* AboutTableViewController.swift */,
 				20DCB41F1DDEBCD100D8754A /* Eateries.xcdatamodeld */,
 				2025FB041DE5C0B10000CAFA /* Page */,
 				20FD18C81DD109110070106A /* EateryDetail */,
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20FD18C71DD108EF0070106A /* EateryDetailTableViewCell.swift in Sources */,
+				200F99581DE84A6500E470F0 /* AboutTableViewController.swift in Sources */,
 				20DCB4211DDEBCD100D8754A /* Eateries.xcdatamodeld in Sources */,
 				2065B33A1DC8ED4A0046745B /* AppDelegate.swift in Sources */,
 				2025FB031DE5C0970000CAFA /* PageViewController.swift in Sources */,
