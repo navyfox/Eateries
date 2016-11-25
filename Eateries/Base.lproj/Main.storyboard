@@ -677,7 +677,7 @@
             </objects>
             <point key="canvasLocation" x="164" y="934"/>
         </scene>
-        <!--Root View Controller-->
+        <!--О нас-->
         <scene sceneID="ywg-C8-Yii">
             <objects>
                 <tableViewController id="qgd-gX-6Vy" customClass="AboutTableViewController" customModule="Eateries" customModuleProvider="target" sceneMemberID="viewController">
@@ -713,11 +713,32 @@
                             <outlet property="delegate" destination="qgd-gX-6Vy" id="G9a-zV-MfO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="rUE-GY-Phb"/>
+                    <navigationItem key="navigationItem" title="О нас" id="rUE-GY-Phb"/>
+                    <connections>
+                        <segue destination="4bY-bI-cdD" kind="show" identifier="showWebPageSegue" id="7m9-Ma-new"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NA5-yg-DL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1652" y="947"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="LRU-ee-Le8">
+            <objects>
+                <viewController id="4bY-bI-cdD" customClass="WebViewController" customModule="Eateries" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BNQ-6w-FO2"/>
+                        <viewControllerLayoutGuide type="bottom" id="flU-jg-kOm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aRC-4s-SYd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8h-AT-vGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2470" y="947"/>
         </scene>
         <!--О нас-->
         <scene sceneID="k2y-Hf-9FT">
